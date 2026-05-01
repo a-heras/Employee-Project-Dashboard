@@ -64,19 +64,19 @@
         <div class="panel__body" data-panel-body="add-employee">
             <form class="form" id="form-add-employee" novalidate>
                 <div class="form__group"><label class="form__label" for="emp-name">Name</label>
-                    <input id="emp-name" type="text" class="form__input" name="name" minlength="3" required pattern="[A-Za-z]+">
+                    <input id="emp-name" type="text" class="form__input" name="name" minlength="3" required pattern="[A-Za-z]+" autocomplete="off">
                     <div class="form__error" data-error-name></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="emp-surname">Surname</label>
-                    <input id="emp-surname" type="text" class="form__input" name="surname" minlength="3" required pattern="[A-Za-z]+">
+                    <input id="emp-surname" type="text" class="form__input" name="surname" minlength="3" required pattern="[A-Za-z]+" autocomplete="off">
                     <div class="form__error" data-error-surname></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="emp-dob">Date of Birth</label>
-                    <input id="emp-dob" type="date" class="form__input" name="dob" required>
+                    <input id="emp-dob" type="date" class="form__input" name="dob" required autocomplete="off">
                     <div class="form__error" data-error-dob></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="emp-position">Position</label>
-                    <select class="form__input" name="position" id="emp-position" required>
+                    <select class="form__input" name="position" id="emp-position" required autocomplete="off">
                         <option value="">Select position</option>
                         <option value="Junior">Junior</option>
                         <option value="Middle">Middle</option>
@@ -88,7 +88,7 @@
                     <div class="form__error" data-error-position></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="emp-salary">Salary</label>
-                    <input id="emp-salary" type="number" class="form__input" name="salary" step="0.01" min="0.01" required>
+                    <input id="emp-salary" type="number" class="form__input" name="salary" step="0.01" min="0.01" required autocomplete="off">
                     <div class="form__error" data-error-salary></div>
                 </div>
                 <button class="form__submit" type="submit" disabled>Create Employee</button>
@@ -104,19 +104,19 @@
         <div class="panel__body" data-panel-body="add-project">
             <form class="form" id="form-add-project" novalidate>
                 <div class="form__group"><label class="form__label" for="project-name">Project Name</label>
-                    <input id="project-name" type="text" class="form__input" name="projectName" minlength="3" required pattern="[A-Za-z0-9 ]+">
+                    <input id="project-name" type="text" class="form__input" name="projectName" minlength="3" required pattern="[A-Za-z0-9 ]+" autocomplete="off">
                     <div class="form__error" data-error-projectName></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="company-name">Company Name</label>
-                    <input id="company-name" type="text" class="form__input" name="companyName" minlength="2" required pattern="[A-Za-z0-9 ]+">
+                    <input id="company-name" type="text" class="form__input" name="companyName" minlength="2" required pattern="[A-Za-z0-9 ]+" autocomplete="off">
                     <div class="form__error" data-error-companyName></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="project-budget">Budget</label>
-                    <input id="project-budget" type="number" class="form__input" name="budget" step="0.01" min="0.01" required>
+                    <input id="project-budget" type="number" class="form__input" name="budget" step="0.01" min="0.01" required autocomplete="off">
                     <div class="form__error" data-error-budget></div>
                 </div>
                 <div class="form__group"><label class="form__label" for="project-capacity">Employee Capacity</label>
-                    <input id="project-capacity" type="number" class="form__input" name="capacity" min="1" step="1" required>
+                    <input id="project-capacity" type="number" class="form__input" name="capacity" min="1" step="1" required autocomplete="off">
                     <div class="form__error" data-error-capacity></div>
                 </div>
                 <button class="form__submit" type="submit" disabled>Create Project</button>
