@@ -58,11 +58,9 @@ export function renderAssignPopup(employeeId, anchorBtn) {
                     </div>
                     <div><b>Effective Capacity:</b>
                         <span data-effective>0.10</span>
-                        <span class="assign-calc-text">(${effectiveCapacity.toFixed(3)})</span>
                     </div>
                     <div><b>After Assignment:</b>
                         <span data-after-project></span>
-                        <span class="assign-calc-text">(${afterProjectCapacity.toFixed(3)})</span>
                     </div>
                 </div>
                 <div class="assign-error" data-error></div>

@@ -104,7 +104,7 @@ export function renderEmployeesTable(year, month) {
     const maxCap = 1.5;
     const noProjects = projects.length === 0;
     const rows = rowsData.map(({ emp, age, estimatedPayment, projectedIncome, assignments, usedCap }) => {
-        const projectCell = noProjects
+        const projectCell = (noProjects || assignments.length === 0)
             ? `<td>—</td>`
             : `<td><button type="button" class="show-assignments-btn" data-id="${emp.id}">Show Assignments (${assignments.length}); ${usedCap.toFixed(1)}/${maxCap}</button></td>`;
         const assignDisabled = noProjects || usedCap >= maxCap;
