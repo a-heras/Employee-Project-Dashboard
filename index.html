@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Employee & Project Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/main.css" />
+</head>
+<body>
+    <div class="panel-backdrop" data-panel-backdrop hidden></div>
+    <div class="app">
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar__header">
+                <button class="sidebar__toggle" data-sidebar-toggle>☰</button>
+                <h1 class="sidebar__title">Dashboard</h1>
+            </div>
+            <div class="sidebar__section sidebar__period">
+                <label class="sidebar__label" for="year">Year</label>
+                <select class="sidebar__select" id="year" data-year-select>
+                    <option value="2025">2025</option>
+                    <option value="2026" selected>2026</option>
+                    <option value="2027">2027</option>
+                </select>
+                <label class="sidebar__label" for="month">Month</label>
+                <select class="sidebar__select" id="month" data-month-select>
+                    <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+                    <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+                    <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+                    <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+                </select>
+            </div>
+            <div class="sidebar__section sidebar__nav">
+                <button class="sidebar__tab sidebar__tab--active" data-view-tab="projects">Projects</button>
+                <button class="sidebar__tab" data-view-tab="employees">Employees</button>
+            </div>
+        </aside>
+
+        <div class="layout">
+            <header class="header">
+                <div class="header__left">
+                    <button class="header__sidebar-open" data-sidebar-open hidden>→</button>
+                    <h2 class="header__title" data-current-view-title>Projects</h2>
+                </div>
+                <div class="header__right">
+                    <span class="header__period" data-current-period-label>January 2026</span>
+                    <button class="sidebar__button header__action-btn" data-open-add-project>+ Add Project</button>
+                    <button class="sidebar__button header__action-btn" data-seed-button>Seed Data</button>
+                    <button class="sidebar__button header__action-btn" data-open-add-employee>+ Add Employee</button>
+                </div>
+            </header>
+            <main class="content" id="content"></main>
+            <footer class="footer">
+                <div class="footer__summary" data-summary-container></div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="panel panel--right" data-panel="add-employee" hidden>
+        <div class="panel__header">
+            <h3 class="panel__title">Add Employee</h3>
+            <button class="panel__close" data-panel-close>×</button>
+        </div>
+        <div class="panel__body" data-panel-body="add-employee">
+            <form class="form" id="form-add-employee" novalidate>
+                <div class="form__group"><label class="form__label" for="emp-name">Name</label>
+                    <input id="emp-name" type="text" class="form__input" name="name" minlength="3" required pattern="[A-Za-z]+">
+                    <div class="form__error" data-error-name></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="emp-surname">Surname</label>
+                    <input id="emp-surname" type="text" class="form__input" name="surname" minlength="3" required pattern="[A-Za-z]+">
+                    <div class="form__error" data-error-surname></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="emp-dob">Date of Birth</label>
+                    <input id="emp-dob" type="date" class="form__input" name="dob" required>
+                    <div class="form__error" data-error-dob></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="emp-position">Position</label>
+                    <select class="form__input" name="position" id="emp-position" required>
+                        <option value="">Select position</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Middle">Middle</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Lead">Lead</option>
+                        <option value="Architect">Architect</option>
+                        <option value="BO">BO</option>
+                    </select>
+                    <div class="form__error" data-error-position></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="emp-salary">Salary</label>
+                    <input id="emp-salary" type="number" class="form__input" name="salary" step="0.01" min="0.01" required>
+                    <div class="form__error" data-error-salary></div>
+                </div>
+                <button class="form__submit" type="submit" disabled>Create Employee</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel--right" data-panel="add-project">
+        <div class="panel__header">
+            <h3 class="panel__title">Add Project</h3>
+            <button class="panel__close" data-panel-close>×</button>
+        </div>
+        <div class="panel__body" data-panel-body="add-project">
+            <form class="form" id="form-add-project" novalidate>
+                <div class="form__group"><label class="form__label" for="project-name">Project Name</label>
+                    <input id="project-name" type="text" class="form__input" name="projectName" minlength="3" required pattern="[A-Za-z0-9 ]+">
+                    <div class="form__error" data-error-projectName></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="company-name">Company Name</label>
+                    <input id="company-name" type="text" class="form__input" name="companyName" minlength="2" required pattern="[A-Za-z0-9 ]+">
+                    <div class="form__error" data-error-companyName></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="project-budget">Budget</label>
+                    <input id="project-budget" type="number" class="form__input" name="budget" step="0.01" min="0.01" required>
+                    <div class="form__error" data-error-budget></div>
+                </div>
+                <div class="form__group"><label class="form__label" for="project-capacity">Employee Capacity</label>
+                    <input id="project-capacity" type="number" class="form__input" name="capacity" min="1" step="1" required>
+                    <div class="form__error" data-error-capacity></div>
+                </div>
+                <button class="form__submit" type="submit" disabled>Create Project</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" data-backdrop hidden>
+        <div class="modal" data-modal hidden>
+            <button class="modal__close" data-modal-close>×</button>
+            <div class="modal__content" data-modal-content></div>
+        </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
