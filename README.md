@@ -1,7 +1,7 @@
 # Employee & Project Dashboard
 
 Vanilla JavaScript dashboard for managing employees, projects, and monthly assignments with financial projections. Data is stored in `localStorage` under the key `monthlyData`.
-
+[Open Project](https://a-heras.github.io/Employee-Project-Dashboard/)
 ## Features
 
 - Monthly snapshots (employees and projects per year/month)
